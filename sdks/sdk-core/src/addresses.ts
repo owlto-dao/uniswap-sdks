@@ -284,6 +284,9 @@ export const CHAIN_TO_ADDRESSES_MAP: Record<SupportedChainsType, ChainAddresses>
 /* V3 Contract Addresses */
 export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {
   ...SUPPORTED_CHAINS.reduce<AddressMap>((memo, chainId) => {
+    if (chainId == ChainId.BOB) {
+      return "0xcb2436774C3e191c85056d248EF4260ce5f27A9D";
+    }
     memo[chainId] = CHAIN_TO_ADDRESSES_MAP[chainId].v3CoreFactoryAddress
     return memo
   }, {}),
